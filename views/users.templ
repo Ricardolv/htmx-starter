@@ -1,0 +1,34 @@
+package views
+
+templ Users(users []string) {
+	@page() {
+		<h1 hx-get="/users/list" 
+				hx-target="ul"
+				hx-swap="beforeend"
+				hx-trigger="mouseover">
+				Users Page
+		</h1>
+        <a class="is-black" hx-boost="true" href="/" >Home</a>
+		<br />
+		<button hx-get="/users/list" 
+				hx-target="ul"
+				hx-swap="beforeend"
+				hx-confirm="Tem certeza deque quer atualizar usuarios?"
+				class="button" is-primary my-3>
+				Carregar mais
+		</button>
+		<div class="content">
+			<ul>
+				@UsersList(users)
+			</ul>
+		</div>
+
+
+	}
+}
+
+templ UsersList(users [] string) {
+	for _, u := range users {
+					<li>{u}</li>
+				}
+}

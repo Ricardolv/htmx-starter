@@ -3,5 +3,14 @@ package views
 templ Home() {
 	@page() {
 		<h1>Sample Home Page</h1>
+		<p 	hx-get="/users" 
+			hx-target="body"
+			hx-indicator="#loading">Users</p>
+		
+		<a class="is-block" hx-post="/stocks" hx-target="body">Stock</a>
+
+		<div id="loading" class="htmx-indicator">
+			Loading...
+		</div>
 	}
 }
